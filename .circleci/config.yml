@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Run Playbook and configure server
           command: |
-            ansible-playbook -i inventory.txt main-remote.yml --private-key ansible.pem
+            ansible-playbook -i inventory.txt main-remote.yml -u deploy
 
 # Sequential workflow
 workflows:
