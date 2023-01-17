@@ -7,8 +7,6 @@ version: 2.1
 # Define the jobs we want to run for this project
 commands:
   destroy_environment:
-    docker:
-      - image: amazon/aws-cli
     steps:
       - run:
           name: Destroy environment and cloud resources if anything fails
@@ -50,7 +48,7 @@ jobs:
             ansible-playbook -i inventory.txt main-remote.yml
   smoke_test:
     docker:
-      - image: alpine:latest
+      - image: amazon/aws-cli
     steps:
       - run:
           name: smoke test
